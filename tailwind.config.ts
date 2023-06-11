@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('./src/colors.json');
-const buttons = require('./plugins/tailwind-buttons.cjs');
+import colors from './src/colors.json';
+import buttons from './plugins/tailwind-buttons.cjs';
 
-module.exports = {
+export default  {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
