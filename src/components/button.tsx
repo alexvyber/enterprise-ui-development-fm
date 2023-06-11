@@ -1,3 +1,5 @@
+
+// @ts-expect-error
 import colors from '@/colors.json';
 import { css } from '@emotion/css';
 import { ComponentPropsWithoutRef } from 'react';
