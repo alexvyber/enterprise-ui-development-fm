@@ -1,18 +1,18 @@
 export type Character = {
-  id: string | number;
-  firstName: string;
-  lastName: string;
-  avatarUrl: string;
-  type: string;
-  department: string;
-  occupation: string;
-  strength: number;
-  intelligence: number;
-  wisdom: number;
-  charisma: number;
-  dexterity: number;
-  constitution: number;
-};
+  id: string | number
+  firstName: string
+  lastName: string
+  avatarUrl: string
+  type: string
+  department: string
+  occupation: string
+  strength: number
+  intelligence: number
+  wisdom: number
+  charisma: number
+  dexterity: number
+  constitution: number
+}
 
 const CharacterCard = ({
   id,
@@ -79,7 +79,7 @@ const CharacterCard = ({
         </div>
       </dl>
     </article>
-  );
-};
+  )
+}
 
-export default CharacterCard;
+export default CharacterCard

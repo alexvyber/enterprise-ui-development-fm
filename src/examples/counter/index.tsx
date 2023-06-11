@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import Frame from '$components/frame';
+import { useState } from "react"
+import Frame from "$components/frame"
 
 type CounterProps = {
-  initialCount?: number;
-};
+  initialCount?: number
+}
 
 const Counter = ({ initialCount = 0 }: CounterProps) => {
-  const [count, setCount] = useState(initialCount);
+  const [count, setCount] = useState(initialCount)
 
   return (
     <Frame className="text-center">
@@ -18,18 +18,14 @@ const Counter = ({ initialCount = 0 }: CounterProps) => {
       </div>
       <div className="flex justify-center gap-4">
         <button className="btn-danger" name="reset" onClick={() => setCount(0)}>
-          Reset
+          rEsET
         </button>
-        <button
-          className="btn-primary"
-          name="increment"
-          onClick={() => setCount((n) => n + 1)}
-        >
+        <button className="btn-primary" name="increment" onClick={() => setCount((n) => n + 1)}>
           Increment
         </button>
       </div>
     </Frame>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter

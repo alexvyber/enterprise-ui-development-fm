@@ -1,10 +1,10 @@
-import { type PropsWithChildren, useState } from 'react';
-import Numbers from './numbers';
-import NumberRange from './number-range';
-import Frame from '$components/frame';
+import { type PropsWithChildren, useState } from "react"
+import Numbers from "./numbers"
+import NumberRange from "./number-range"
+import Frame from "$components/frame"
 
 const FizzBuzz = ({ children }: PropsWithChildren) => {
-  const [amount, setAmount] = useState(10);
+  const [amount, setAmount] = useState(10)
 
   return (
     <Frame>
@@ -16,7 +16,7 @@ const FizzBuzz = ({ children }: PropsWithChildren) => {
       />
       <Numbers times={amount} />
     </Frame>
-  );
-};
+  )
+}
 
-export default FizzBuzz;
+export default FizzBuzz

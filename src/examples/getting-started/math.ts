@@ -1,26 +1,25 @@
-export const add = (a: number, b: number): number => a + b;
+export const add = (a: number, b: number): number => a + b
 
-export const subtract = (minuend: number, subtrahend: number): number =>
-  add(minuend, -subtrahend);
+export const subtract = (minuend: number, subtrahend: number): number => add(minuend, -subtrahend)
 
 export const multiply = (multiplicand: number, multiplier: number): number => {
-  let result = 0;
+  let result = 0
 
   while (multiplier--) {
-    result = add(result, multiplicand);
+    result = add(result, multiplicand)
   }
 
-  return result;
-};
+  return result
+}
 
 export const divide = (dividend: number, denominator: number): number => {
-  return dividend / denominator;
-};
+  return dividend / denominator
+}
 
 export const sum = (...numbers: number[]): number => {
-  return numbers.reduce((total, n) => total + n, 0);
-};
+  return numbers.reduce((total, n) => total + n, 0)
+}
 
 export const average = (...numbers: number[]): number => {
-  return divide(sum(...numbers), numbers.length);
-};
+  return divide(sum(...numbers), numbers.length)
+}

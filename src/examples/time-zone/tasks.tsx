@@ -1,8 +1,8 @@
 export type Task = {
-  title: string;
-  completed: boolean;
-  id: number;
-};
+  title: string
+  completed: boolean
+  id: number
+}
 
 export const TaskListItem = ({ title, completed, id }: Task) => {
   return (
@@ -10,8 +10,8 @@ export const TaskListItem = ({ title, completed, id }: Task) => {
       <input type="checkbox" id={`task-${id}`} checked={completed} />
       <label htmlFor={`task-${id}`}>{title}</label>
     </li>
-  );
-};
+  )
+}
 
 const TaskList = ({ tasks }: { tasks: Task[] }) => {
   return (
@@ -20,7 +20,7 @@ const TaskList = ({ tasks }: { tasks: Task[] }) => {
         <TaskListItem key={task.id} {...task} />
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default TaskList;
+export default TaskList

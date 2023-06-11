@@ -1,28 +1,24 @@
-import { PropsWithChildren } from 'react';
-import { Provider } from 'react-redux';
-import { render, screen } from 'test/utilities';
-import ItemList from './item-list';
-import { store } from './store';
-import { add } from './store/items-slice';
+import { PropsWithChildren } from "react"
+import { Provider } from "react-redux"
+import { render, screen } from "test/utilities"
+import ItemList from "./item-list"
+import { store } from "./store"
+import { add } from "./store/items-slice"
 
-it('should render', async () => {
+it("should render", async () => {
   render(<ItemList title="Unpacked Items" packed={false} />, {
-    wrapper: ({ children }: PropsWithChildren) => (
-      <Provider store={store}>{children}</Provider>
-    ),
-  });
-});
+    wrapper: ({ children }: PropsWithChildren) => <Provider store={store}>{children}</Provider>,
+  })
+})
 
-it('should display items', () => {
-  store.dispatch(add({ name: 'Lucky beanie' }));
+it("should display items", () => {
+  store.dispatch(add({ name: "Lucky beanie" }))
 
   render(<ItemList title="Unpacked Items" packed={false} />, {
-    wrapper: ({ children }: PropsWithChildren) => (
-      <Provider store={store}>{children}</Provider>
-    ),
-  });
+    wrapper: ({ children }: PropsWithChildren) => <Provider store={store}>{children}</Provider>,
+  })
 
-  expect(screen.getByTestId('unpacked-items-list')).toMatchInlineSnapshot(`
+  expect(screen.getByTestId("unpacked-items-list")).toMatchInlineSnapshot(`
     <ul
       class="flex flex-col gap-2"
       data-testid="unpacked-items-list"
@@ -64,5 +60,5 @@ it('should display items', () => {
         </div>
       </li>
     </ul>
-  `);
-});
+  `)
+})

@@ -1,12 +1,12 @@
-import { render } from 'test/utilities';
-import { axe, toHaveNoViolations } from 'jest-axe';
-import PackingList from '.';
+import { render } from "test/utilities"
+import { axe, toHaveNoViolations } from "jest-axe"
+import PackingList from "."
 
-expect.extend(toHaveNoViolations);
+expect.extend(toHaveNoViolations)
 
-it('should have no accessibility violations', async () => {
-  const { container } = render(<PackingList />);
-  const results = await axe(container);
+it("should have no accessibility violations", async () => {
+  const { container } = render(<PackingList />)
+  const results = await axe(container)
 
-  expect(results).toHaveNoViolations();
-});
+  expect(results).toHaveNoViolations()
+})

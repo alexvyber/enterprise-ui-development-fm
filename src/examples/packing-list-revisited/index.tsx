@@ -1,9 +1,9 @@
-import { Provider } from 'react-redux';
-import Frame from '$components/frame';
-import ItemList from './item-list';
-import MarkAllAsUnpacked from './mark-all-as-unpacked';
-import NewItem from './new-item';
-import { store } from './store';
+import { Provider } from "react-redux"
+import Frame from "$components/frame"
+import ItemList from "./item-list"
+import MarkAllAsUnpacked from "./mark-all-as-unpacked"
+import NewItem from "./new-item"
+import { store } from "./store"
 
 export const PackingList = () => (
   <Frame>
@@ -17,14 +17,14 @@ export const PackingList = () => (
     </section>
     <MarkAllAsUnpacked />
   </Frame>
-);
+)
 
 const Application = () => {
   return (
     <Provider store={store}>
       <PackingList />
     </Provider>
-  );
-};
+  )
+}
 
-export default Application;
+export default Application

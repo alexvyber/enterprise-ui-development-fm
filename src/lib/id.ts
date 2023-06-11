@@ -1,3 +1,3 @@
-let id = 1;
+let id = 1
 
-export const generateId = (): string => `${id++}`;
+export const generateId = (): string => `${id++}`

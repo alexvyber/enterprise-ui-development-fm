@@ -1,3 +1,3 @@
-import { test, expect, vi } from 'vitest';
+import { test, expect, vi } from "vitest"
 
-test.todo('it spies on the multiply method');
+test.todo("it spies on the multiply method")

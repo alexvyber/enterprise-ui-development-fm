@@ -1,5 +1,5 @@
-import { expect, test } from 'vitest';
-import { getArea } from './get-area';
+import { expect, test } from "vitest"
+import { getArea } from "./get-area"
 
 const examples = [
   { sides: 3, lengthOfSides: 10, area: 43.3012701892219 },
@@ -18,11 +18,11 @@ const examples = [
   { sides: 8, lengthOfSides: 20, area: 1931.37084989848 },
   { sides: 9, lengthOfSides: 20, area: 2472.72967750916 },
   { sides: 10, lengthOfSides: 20, area: 3077.68353717525 },
-];
+]
 
 test.each(examples)(
-  'it should correctly calculate the area for a polygon with $sides sides with a length of $lengthOfSides',
+  "it should correctly calculate the area for a polygon with $sides sides with a length of $lengthOfSides",
   ({ sides, lengthOfSides, area }) => {
-    expect(getArea(sides, lengthOfSides)).toBeCloseTo(area, 2);
-  },
-);
+    expect(getArea(sides, lengthOfSides)).toBeCloseTo(area, 2)
+  }
+)

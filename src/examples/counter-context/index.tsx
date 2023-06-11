@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import Frame from '$components/frame';
-import { CounterContext, CounterProvider } from './context';
+import { useContext } from "react"
+import Frame from "$components/frame"
+import { CounterContext, CounterProvider } from "./context"
 
 const Counter = () => {
-  const { count, increment, reset } = useContext(CounterContext);
+  const { count, increment, reset } = useContext(CounterContext)
 
   return (
     <Frame className="text-center">
@@ -22,11 +22,11 @@ const Counter = () => {
         </button>
       </div>
     </Frame>
-  );
-};
+  )
+}
 
 export default () => (
   <CounterProvider>
     <Counter />
   </CounterProvider>
-);
+)

@@ -1,6 +1,6 @@
-import { repeat } from '$lib/repeat';
-import { toFizzBuzz } from '$lib/to-fizz-buzz';
-import { NumberItem } from './number';
+import { repeat } from "$lib/repeat"
+import { toFizzBuzz } from "$lib/to-fizz-buzz"
+import { NumberItem } from "./number"
 
 const Numbers = ({ times }: { times: number }) => {
   return (
@@ -9,7 +9,7 @@ const Numbers = ({ times }: { times: number }) => {
         <NumberItem key={i}>{toFizzBuzz(i)}</NumberItem>
       ))}
     </section>
-  );
-};
+  )
+}
 
-export default Numbers;
+export default Numbers

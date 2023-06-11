@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { add } from './store/items-slice';
-import { useDispatch } from './store/hooks';
+import { useState } from "react"
+import { add } from "./store/items-slice"
+import { useDispatch } from "./store/hooks"
 
 const NewItem = () => {
-  const [newItemName, setNewItemName] = useState('');
-  const dispatch = useDispatch();
+  const [newItemName, setNewItemName] = useState("")
+  const dispatch = useDispatch()
 
   return (
     <form
       id="new-item"
       onSubmit={(e) => {
-        e.preventDefault();
-        dispatch(add({ name: newItemName }));
-        setNewItemName('');
+        e.preventDefault()
+        dispatch(add({ name: newItemName }))
+        setNewItemName("")
       }}
     >
       <label htmlFor="new-item-name" className="font-semibold">
@@ -31,14 +31,14 @@ const NewItem = () => {
           id="new-item-submit"
           className="whitespace-nowrap border-l-0 bg-primary-300"
           disabled={!newItemName}
-          aria-label={'Add New Item'}
+          aria-label={"Add New Item"}
           type="submit"
         >
           ➕ Add New Item
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default NewItem;
+export default NewItem

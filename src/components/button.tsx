@@ -1,19 +1,18 @@
-
 // @ts-expect-error
-import colors from '@/colors.json';
-import { css } from '@emotion/css';
-import { ComponentPropsWithoutRef } from 'react';
+import colors from "@/colors.json"
+import { css } from "@emotion/css"
+import { ComponentPropsWithoutRef } from "react"
 
 type ButtonProps = {
-  variant?: keyof typeof colors;
-} & ComponentPropsWithoutRef<'button'>;
+  variant?: keyof typeof colors
+} & ComponentPropsWithoutRef<"button">
 
-const base = '200';
-const hover = '300';
-const active = '400';
-const border = '700';
+const base = "200"
+const hover = "300"
+const active = "400"
+const border = "700"
 
-const Button = ({ children, variant = 'secondary' }: ButtonProps) => {
+const Button = ({ children, variant = "secondary" }: ButtonProps) => {
   return (
     <button
       className={css`
@@ -32,7 +31,7 @@ const Button = ({ children, variant = 'secondary' }: ButtonProps) => {
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

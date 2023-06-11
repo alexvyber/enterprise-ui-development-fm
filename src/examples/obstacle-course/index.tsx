@@ -1,27 +1,20 @@
-import { useReducer, useState } from 'react';
+import { useReducer, useState } from "react"
 
-const avengers = [
-  'Iron Man',
-  'Black Widow',
-  'Thor',
-  'Hulk',
-  'Captain America',
-  'Hawkeye',
-] as const;
+const avengers = ["Iron Man", "Black Widow", "Thor", "Hulk", "Captain America", "Hawkeye"] as const
 
 const toppingsState = {
   Onion: false,
   Sardines: false,
   Tomato: false,
   Lettuce: false,
-} as const;
+} as const
 
-const toppings = Object.keys(toppingsState);
+const toppings = Object.keys(toppingsState)
 
-const beatles = ['John', 'Paul', 'George', 'Ringo'];
+const beatles = ["John", "Paul", "George", "Ringo"]
 
-type Topping = keyof typeof toppingsState;
-type Beatle = (typeof beatles)[number];
+type Topping = keyof typeof toppingsState
+type Beatle = typeof beatles[number]
 
 const toppingsReducer = (
   toppings: Record<Topping, boolean> = {
@@ -30,24 +23,24 @@ const toppingsReducer = (
     Tomato: false,
     Lettuce: false,
   },
-  action: { topping: Topping; checked: boolean },
+  action: { topping: Topping; checked: boolean }
 ) => {
-  return { ...toppings, [action.topping]: action.checked };
-};
+  return { ...toppings, [action.topping]: action.checked }
+}
 
 const isTopping = (s: string): s is Topping => {
-  return toppings.includes(s);
-};
+  return toppings.includes(s)
+}
 
 const ObstacleCourse = () => {
-  const [text, setText] = useState<string>('');
-  const [favoriteAvenger, setFavoriteAvenger] = useState<string>('Black Widow');
-  const [toppings, dispatch] = useReducer(toppingsReducer, toppingsState);
-  const [favoriteBeatle, setFavoriteBeatle] = useState<Beatle>('Paul');
-  const [color, setColor] = useState<string>('#FF0000');
-  const [date, setDate] = useState<string>('2021-12-17');
-  const [rating, setRating] = useState('4');
-  const [file, setFile] = useState<string>('');
+  const [text, setText] = useState<string>("")
+  const [favoriteAvenger, setFavoriteAvenger] = useState<string>("Black Widow")
+  const [toppings, dispatch] = useReducer(toppingsReducer, toppingsState)
+  const [favoriteBeatle, setFavoriteBeatle] = useState<Beatle>("Paul")
+  const [color, setColor] = useState<string>("#FF0000")
+  const [date, setDate] = useState<string>("2021-12-17")
+  const [rating, setRating] = useState("4")
+  const [file, setFile] = useState<string>("")
 
   return (
     <div className="grid grid-cols-2 gap-4">
@@ -78,7 +71,7 @@ const ObstacleCourse = () => {
         </select>
       </div>
       <div className="flex items-center justify-around border-2 border-purple-300 p-2">
-        <p data-testid="select-result">{favoriteAvenger || 'No one'}</p>
+        <p data-testid="select-result">{favoriteAvenger || "No one"}</p>
       </div>
       <div className="border-2 border-purple-300 p-2">
         <h3>Toppings</h3>
@@ -90,11 +83,11 @@ const ObstacleCourse = () => {
               name="toppings"
               value={topping}
               onChange={(e) => {
-                if (!isTopping(e.target.value)) return;
+                if (!isTopping(e.target.value)) return
                 dispatch({
                   topping: e.target.value,
                   checked: e.target.checked,
-                });
+                })
               }}
               data-testid="checkbox-{topping.toLocaleLowerCase()}"
             />
@@ -105,9 +98,7 @@ const ObstacleCourse = () => {
         ))}
       </div>
       <div className="flex items-center justify-around border-2 border-purple-300 p-2">
-        <p data-testid="checkbox-result">
-          {Object.keys(toppings).join(', ') || '(None)'}
-        </p>
+        <p data-testid="checkbox-result">{Object.keys(toppings).join(", ") || "(None)"}</p>
       </div>
       <div className="border-2 border-purple-300 p-2">
         <h3>Favorite Beatle</h3>
@@ -190,10 +181,10 @@ const ObstacleCourse = () => {
         />
       </div>
       <div className="flex items-center justify-around border-2 border-purple-300 p-2">
-        <p data-testid="file-result">{file || ''}</p>
+        <p data-testid="file-result">{file || ""}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ObstacleCourse;
+export default ObstacleCourse

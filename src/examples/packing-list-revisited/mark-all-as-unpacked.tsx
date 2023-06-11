@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
-import { markAllAsUnpacked } from './store/items-slice';
+import { useDispatch } from "react-redux"
+import { markAllAsUnpacked } from "./store/items-slice"
 
 const MarkAllAsUnpacked = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   return (
     <div className="mb-16">
       <button className="w-full" onClick={() => dispatch(markAllAsUnpacked())}>
@@ -10,7 +10,7 @@ const MarkAllAsUnpacked = () => {
       </button>
       <input className="hidden" /> {/* Weird… who put this here? */}
     </div>
-  );
-};
+  )
+}
 
-export default MarkAllAsUnpacked;
+export default MarkAllAsUnpacked

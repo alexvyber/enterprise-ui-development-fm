@@ -1,45 +1,39 @@
-import { ComponentPropsWithoutRef, FormEventHandler, useRef } from 'react';
-import clsx from 'clsx';
-import Input from '$components/input';
+import { ComponentPropsWithoutRef, FormEventHandler, useRef } from "react"
+import clsx from "clsx"
+import Input from "$components/input"
 
 const SignUpForm = ({
   onSubmit = () => {},
   onInvalid,
   className,
   ...props
-}: ComponentPropsWithoutRef<'form'>) => {
-  const ref = useRef<HTMLFormElement>(null);
+}: ComponentPropsWithoutRef<"form">) => {
+  const ref = useRef<HTMLFormElement>(null)
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
-    onSubmit(event);
-  };
+    event.preventDefault()
+    onSubmit(event)
+  }
 
   const showErrors: FormEventHandler<HTMLFormElement> = (event) => {
     if (onInvalid) {
-      onInvalid(event);
+      onInvalid(event)
     } else {
       if (ref?.current?.dataset) {
-        ref.current.dataset.validate = 'true';
+        ref.current.dataset.validate = "true"
       }
     }
-  };
+  }
 
   return (
     <form
       {...props}
-      className={clsx('flex flex-col gap-4', className)}
+      className={clsx("flex flex-col gap-4", className)}
       onSubmit={handleSubmit}
       onInvalid={showErrors}
       ref={ref}
     >
-      <Input
-        id="sign-up-username"
-        type="text"
-        label="Username"
-        placeholder="Username"
-        required
-      />
+      <Input id="sign-up-username" type="text" label="Username" placeholder="Username" required />
       <Input
         id="sign-up-password"
         placeholder="Password"
@@ -56,7 +50,7 @@ const SignUpForm = ({
       />
       <button type="submit">Sign Up</button>
     </form>
-  );
-};
+  )
+}
 
-export default SignUpForm;
+export default SignUpForm

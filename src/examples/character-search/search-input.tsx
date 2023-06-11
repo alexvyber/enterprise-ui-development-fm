@@ -1,4 +1,4 @@
-import Input from '$components/input';
+import Input from "$components/input"
 
 const CharacterSearchInput = () => {
   return (
@@ -9,7 +9,7 @@ const CharacterSearchInput = () => {
         </button>
       </Input>
     </form>
-  );
-};
+  )
+}
 
-export default CharacterSearchInput;
+export default CharacterSearchInput
