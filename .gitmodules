@@ -1,0 +1,3 @@
+[submodule "enterprise-ui-dev"]
+	path = enterprise-ui-dev
+	url = https://github.com/stevekinney/enterprise-ui-dev.git
