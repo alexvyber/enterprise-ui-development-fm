@@ -1,22 +1,46 @@
-import { render, screen } from "test/utilities"
-import PackingList from "."
+import { render, screen } from 'test/utilities';
+import PackingList from '.';
 
-it("renders the Packing List application", () => {
-  render(<PackingList />)
-})
+it('renders the Packing List application', () => {
+  render(<PackingList />);
+});
 
-it("has the correct title", async () => {
-  render(<PackingList />)
-  screen.getByText("Packing List")
-})
+it('has the correct title', async () => {
+  render(<PackingList />);
+  screen.getByText('Packing List');
+});
 
-it.todo("has an input field for a new item", () => {})
+it('has an input field for a new item', () => {
+  render(<PackingList />);
+  screen.getByLabelText('New Item Name');
+});
 
-it.todo('has a "Add New Item" button that is disabled when the input is empty', () => {})
+it('has a "Add New Item" button that is disabled when the input is empty', () => {
+  render(<PackingList />);
+  const newItemInput = screen.getByLabelText('New Item Name');
+  const addNewItemButton = screen.getByRole('button', { name: 'Add New Item' });
 
-it.todo('enables the "Add New Item" button when there is text in the input field', async () => {})
+  expect(newItemInput).toHaveValue('');
+  expect(addNewItemButton).toBeDisabled();
+});
 
-it.todo(
-  'adds a new item to the unpacked item list when the clicking "Add New Item"',
-  async () => {}
-)
+it('enables the "Add New Item" button when there is text in the input field', async () => {
+  const { user } = render(<PackingList />);
+  const newItemInput = screen.getByLabelText('New Item Name');
+  const addNewItemButton = screen.getByRole('button', { name: 'Add New Item' });
+
+  await user.type(newItemInput, 'MackBook Pro');
+
+  expect(addNewItemButton).toBeEnabled();
+});
+
+it('adds a new item to the unpacked item list when the clicking "Add New Item"', async () => {
+  const { user } = render(<PackingList />);
+  const newItemInput = screen.getByLabelText('New Item Name');
+  const addNewItemButton = screen.getByRole('button', { name: 'Add New Item' });
+
+  await user.type(newItemInput, 'Some Stuff');
+  await user.click(addNewItemButton);
+
+  expect(screen.getByLabelText('Some Stuff')).not.toBeChecked();
+});
