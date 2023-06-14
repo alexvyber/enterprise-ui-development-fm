@@ -119,7 +119,7 @@ it("supports marking all items as unpacked", () => {
     expect(item).toEqual(
       expect.objectContaining({
         packed: false,
-      })
+      }),
     )
   }
 })

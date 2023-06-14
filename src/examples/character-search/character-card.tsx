@@ -30,8 +30,8 @@ const CharacterCard = ({
   constitution,
 }: Character) => {
   return (
-    <article className="flex flex-col gap-4 border-2 border-primary-200 p-2">
-      <header className="flex flex-col items-center justify-between gap-2 border-2 border-primary-100 bg-primary-50 p-4 sm:flex-row sm:gap-4">
+    <article className="border-primary-200 flex flex-col gap-4 border-2 p-2">
+      <header className="border-primary-100 bg-primary-50 flex flex-col items-center justify-between gap-2 border-2 p-4 sm:flex-row sm:gap-4">
         <img src={avatarUrl} alt={`${firstName} ${lastName}`}></img>
         <h2 className="whitespace-nowrap">
           {firstName} {lastName}

@@ -8,7 +8,7 @@ export const useAllItems = (): Item[] => {
 
 export const useItems = (packed: boolean): Item[] => {
   return useSelector<ApplicationState, Item[]>((state) =>
-    Object.values(state.items).filter((item) => item.packed === packed)
+    Object.values(state.items).filter((item) => item.packed === packed),
   )
 }
 

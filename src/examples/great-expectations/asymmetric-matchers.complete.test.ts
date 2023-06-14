@@ -45,7 +45,7 @@ it("include cool computer scientists by virtue of them being in the club", () =>
     expect(person).toEqual(
       expect.objectContaining({
         isCool: expect.any(Boolean),
-      })
+      }),
     )
   }
 })

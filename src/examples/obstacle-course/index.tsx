@@ -14,7 +14,7 @@ const toppings = Object.keys(toppingsState)
 const beatles = ["John", "Paul", "George", "Ringo"]
 
 type Topping = keyof typeof toppingsState
-type Beatle = typeof beatles[number]
+type Beatle = (typeof beatles)[number]
 
 const toppingsReducer = (
   toppings: Record<Topping, boolean> = {
@@ -23,7 +23,7 @@ const toppingsReducer = (
     Tomato: false,
     Lettuce: false,
   },
-  action: { topping: Topping; checked: boolean }
+  action: { topping: Topping; checked: boolean },
 ) => {
   return { ...toppings, [action.topping]: action.checked }
 }
@@ -44,8 +44,15 @@ const ObstacleCourse = () => {
 
   return (
     <div className="grid grid-cols-2 gap-4">
+      
       <div className="flex items-center gap-2 border-2 border-purple-300 p-2">
-        <label htmlFor="deep-thought">Deep Thought</label>
+        {/* <input /> */}
+        <label
+      //
+      htmlFor="deep-thought"
+      >
+        Deep Thought
+      </label>
         <input
           placeholder="Some text…"
           id="deep-thought"

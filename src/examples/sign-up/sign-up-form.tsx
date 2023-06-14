@@ -2,12 +2,7 @@ import { ComponentPropsWithoutRef, FormEventHandler, useRef } from "react"
 import clsx from "clsx"
 import Input from "$components/input"
 
-const SignUpForm = ({
-  onSubmit = () => {},
-  onInvalid,
-  className,
-  ...props
-}: ComponentPropsWithoutRef<"form">) => {
+const SignUpForm = ({ onSubmit = () => {}, onInvalid, className, ...props }: ComponentPropsWithoutRef<"form">) => {
   const ref = useRef<HTMLFormElement>(null)
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
@@ -34,13 +29,7 @@ const SignUpForm = ({
       ref={ref}
     >
       <Input id="sign-up-username" type="text" label="Username" placeholder="Username" required />
-      <Input
-        id="sign-up-password"
-        placeholder="Password"
-        type="password"
-        label="Password"
-        required
-      />
+      <Input id="sign-up-password" placeholder="Password" type="password" label="Password" required />
       <Input
         id="sign-up-password-confirmation"
         type="password"

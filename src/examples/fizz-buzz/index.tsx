@@ -9,11 +9,7 @@ const FizzBuzz = ({ children }: PropsWithChildren) => {
   return (
     <Frame>
       {children}
-      <NumberRange
-        value={amount}
-        onChange={(event) => setAmount(+event.target.value)}
-        className="w-full"
-      />
+      <NumberRange value={amount} onChange={(event) => setAmount(+event.target.value)} className="w-full" />
       <Numbers times={amount} />
     </Frame>
   )

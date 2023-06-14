@@ -3,7 +3,7 @@ import { getArea } from "./get-area"
 type PolygonType = keyof typeof namedPolygons
 type NamedPolygon<T extends PolygonType> = {
   type: T
-  sides: typeof namedPolygons[T]
+  sides: (typeof namedPolygons)[T]
 } & Polygon
 
 export type Triangle = NamedPolygon<"triangle">

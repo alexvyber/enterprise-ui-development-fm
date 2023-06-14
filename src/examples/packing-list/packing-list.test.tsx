@@ -1,46 +1,50 @@
-import { render, screen } from 'test/utilities';
-import PackingList from '.';
+import { render as rawRender, screen } from "test/utilities"
+import { PackingList } from "."
+import { createStore } from "./store"
+import { Provider } from "react-redux"
 
-it('renders the Packing List application', () => {
-  render(<PackingList />);
-});
+const render = (children: React.ReactNode) => rawRender(<Provider store={createStore()}>{children}</Provider>)
 
-it('has the correct title', async () => {
-  render(<PackingList />);
-  screen.getByText('Packing List');
-});
+it("renders the Packing List application", () => {
+  render(<PackingList />)
+})
 
-it('has an input field for a new item', () => {
-  render(<PackingList />);
-  screen.getByLabelText('New Item Name');
-});
+it("has the correct title", async () => {
+  render(<PackingList />)
+  screen.getByText("Packing List")
+})
+
+it("has an input field for a new item", () => {
+  render(<PackingList />)
+  screen.getByLabelText("New Item Name")
+})
 
 it('has a "Add New Item" button that is disabled when the input is empty', () => {
-  render(<PackingList />);
-  const newItemInput = screen.getByLabelText('New Item Name');
-  const addNewItemButton = screen.getByRole('button', { name: 'Add New Item' });
+  render(<PackingList />)
+  const newItemInput = screen.getByLabelText("New Item Name")
+  const addNewItemButton = screen.getByRole("button", { name: "Add New Item" })
 
-  expect(newItemInput).toHaveValue('');
-  expect(addNewItemButton).toBeDisabled();
-});
+  expect(newItemInput).toHaveValue("")
+  expect(addNewItemButton).toBeDisabled()
+})
 
 it('enables the "Add New Item" button when there is text in the input field', async () => {
-  const { user } = render(<PackingList />);
-  const newItemInput = screen.getByLabelText('New Item Name');
-  const addNewItemButton = screen.getByRole('button', { name: 'Add New Item' });
+  const { user } = render(<PackingList />)
+  const newItemInput = screen.getByLabelText("New Item Name")
+  const addNewItemButton = screen.getByRole("button", { name: "Add New Item" })
 
-  await user.type(newItemInput, 'MackBook Pro');
+  await user.type(newItemInput, "MackBook Pro")
 
-  expect(addNewItemButton).toBeEnabled();
-});
+  expect(addNewItemButton).toBeEnabled()
+})
 
 it('adds a new item to the unpacked item list when the clicking "Add New Item"', async () => {
-  const { user } = render(<PackingList />);
-  const newItemInput = screen.getByLabelText('New Item Name');
-  const addNewItemButton = screen.getByRole('button', { name: 'Add New Item' });
+  const { user } = render(<PackingList />)
+  const newItemInput = screen.getByLabelText("New Item Name")
+  const addNewItemButton = screen.getByRole("button", { name: "Add New Item" })
 
-  await user.type(newItemInput, 'Some Stuff');
-  await user.click(addNewItemButton);
+  await user.type(newItemInput, "Some Stuff")
+  await user.click(addNewItemButton)
 
-  expect(screen.getByLabelText('Some Stuff')).not.toBeChecked();
-});
+  expect(screen.getByLabelText("Some Stuff")).not.toBeChecked()
+})

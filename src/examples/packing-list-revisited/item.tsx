@@ -32,11 +32,7 @@ const Item = ({ itemId }: ItemProps) => {
         onChange={(event) => dispatch(update({ id: itemId, name: event.target.value }))}
       />
       <div className="flex gap-2">
-        <button
-          className="px-2 py-0 text-xs"
-          aria-label={`Edit ${item.name}`}
-          onClick={() => setEditing(!editing)}
-        >
+        <button className="px-2 py-0 text-xs" aria-label={`Edit ${item.name}`} onClick={() => setEditing(!editing)}>
           {editing ? "💾 Save" : "✍️ Edit"}
         </button>
         <button

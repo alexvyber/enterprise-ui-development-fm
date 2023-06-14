@@ -34,7 +34,7 @@ describe("Kanban Board", () => {
     expect(board).toEqual(
       expect.objectContaining({
         url: "https://example.com/boards/important-things",
-      })
+      }),
     )
   })
 })

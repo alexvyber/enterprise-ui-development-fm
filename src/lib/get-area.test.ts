@@ -24,5 +24,5 @@ test.each(examples)(
   "it should correctly calculate the area for a polygon with $sides sides with a length of $lengthOfSides",
   ({ sides, lengthOfSides, area }) => {
     expect(getArea(sides, lengthOfSides)).toBeCloseTo(area, 2)
-  }
+  },
 )

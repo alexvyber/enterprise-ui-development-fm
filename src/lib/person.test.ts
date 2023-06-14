@@ -30,7 +30,7 @@ describe("Person", () => {
     ({ firstName, middleName, lastName, fullName }) => {
       const person = new Person({ firstName, middleName, lastName })
       expect(person.fullName).toBe(fullName)
-    }
+    },
   )
 
   test.each(names)(
@@ -40,22 +40,19 @@ describe("Person", () => {
       expect(person.firstName).toBe(firstName)
       expect(person.middleName).toBe(middleName)
       expect(person.lastName).toBe(lastName)
-    }
+    },
   )
 
-  test.each(names)(
-    "updating a full name parses correctly",
-    ({ firstName, middleName, lastName, fullName }) => {
-      const person = new Person("Cher")
+  test.each(names)("updating a full name parses correctly", ({ firstName, middleName, lastName, fullName }) => {
+    const person = new Person("Cher")
 
-      person.fullName = fullName
+    person.fullName = fullName
 
-      expect(person.fullName).toBe(fullName)
-      expect(person.firstName).toBe(firstName)
-      expect(person.middleName).toBe(middleName)
-      expect(person.lastName).toBe(lastName)
-    }
-  )
+    expect(person.fullName).toBe(fullName)
+    expect(person.firstName).toBe(firstName)
+    expect(person.middleName).toBe(middleName)
+    expect(person.lastName).toBe(lastName)
+  })
 
   it("will throw if you provide an empty string", () => {
     expect(() => {
@@ -143,10 +140,7 @@ describe("isFriendOfFriend", () => {
     { source: john, target: george, knowEachOther: true },
     { source: john, target: ringo, knowEachOther: true },
     { source: john, target: benjamin, knowEachOther: false },
-  ])(
-    "is $knowEachOther that $source.fullName knows $target.fullName",
-    ({ source, target, knowEachOther }) => {
-      expect(isFriendOfFriend(source, target)).toBe(knowEachOther)
-    }
-  )
+  ])("is $knowEachOther that $source.fullName knows $target.fullName", ({ source, target, knowEachOther }) => {
+    expect(isFriendOfFriend(source, target)).toBe(knowEachOther)
+  })
 })

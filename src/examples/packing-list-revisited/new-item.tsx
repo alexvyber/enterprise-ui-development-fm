@@ -29,7 +29,7 @@ const NewItem = () => {
         />
         <button
           id="new-item-submit"
-          className="whitespace-nowrap border-l-0 bg-primary-300"
+          className="bg-primary-300 whitespace-nowrap border-l-0"
           disabled={!newItemName}
           aria-label={"Add New Item"}
           type="submit"

@@ -11,6 +11,7 @@ export default defineConfig({
       test: path.resolve(__dirname, "../../../test"),
     },
   },
+
   test: {
     globals: true,
     exclude: [...defaultExclude, "**/*.svelte**"],

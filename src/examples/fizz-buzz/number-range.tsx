@@ -6,14 +6,7 @@ type NumberRange = ComponentPropsWithoutRef<"input"> & {
   value: number | string
 }
 
-const NumberRange = ({
-  id = "select-number",
-  value,
-  min = 1,
-  max = 100,
-  type = "range",
-  ...props
-}: NumberRange) => {
+const NumberRange = ({ id = "select-number", value, min = 1, max = 100, type = "range", ...props }: NumberRange) => {
   return (
     <form onSubmit={(event) => event.preventDefault} className="w-full">
       <label htmlFor={`${id}-range`}>
